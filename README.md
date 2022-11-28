@@ -61,7 +61,7 @@ misc:
 
 Now you can start GFO with the following command:
 
-`docker run --publish 80:80 --mount type=bind,source=/etc/gfo/gfo.yaml,target=/app/gfo.yaml`
+`docker run --publish 80:80 --mount type=bind,source=/etc/gfo/gfo.yaml,target=/app/gfo.yaml bartscherer/gfo:latest`
 
 > Of course, you can also use a port other than 80. To do this, change the `--publish 80:80` parameter to `--publish 1234:80`, for example, to make GFO available externally on port 1234.
 
