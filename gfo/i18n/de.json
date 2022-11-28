@@ -1,0 +1,25 @@
+{
+    "languages": {
+        "de": "German",
+        "en": "English"
+    },
+    "index": {
+        "title": "Google Fonts On-premise",
+        "head": {
+            "author": "Thomas Bartscherer [thomas@bartscherer.io]",
+            "description": "Just a generic tool"
+        },
+        "headline": "<span class='highlight'>G</span>oogle <span class='highlight'>F</span>onts <span class='highlight'>O</span>n-premise",
+        "introduction": "Diese Software stellt einen Proxy zum Herunterladen von Schriftarten von Google Fonts dar. Wenn Sie auf Ihrer Website Schriftarten von Google via fonts.googleapis.com einbinden, können Sie in Ihrem Quellcode die fonts.googleapis.com URLs in den CSS Link-Tags durch die URL dieser Anwendung ersetzen und schon laden Ihre Besucher die Schriftarten nicht mehr von Google's Servern, sondern von dieser Anwendung herunter. Wenn Sie diese Anwendung selber hosten wollen, klicken Sie bitte <a href='https://github.com/bartscherer/gfo'>hier</a> für eine Anleitung.",
+        "disclaimer": "Alle Schriftarten, welche über diese Anwendung bereitgestellt werden, sind intellektuelles Eigentum von Google und den Designer*innen der entsprechenden Schriftart. <a href='https://developers.google.com/fonts/faq'>Hier</a> können Sie die Nutzungsbedingungen einsehen.",
+        "urlInputIcon": "link",
+        "urlInputPlaceholder": "https://fonts.googleapis.com/css[2]?family=Roboto...",
+        "btnConvertTitle": "Diesen Link in eine lokale URL umwandeln",
+        "btnConvertIcon": "swap_horizontal_circle",
+        "btnDownloadTitle": "CSS und Schriftarten von Google Fonts als Archiv herunterladen",
+        "btnDownloadIcon": "cloud_download",
+        "imprint": "Impressum des Diensteanbieters",
+        "privacy": "Datenschutzerklärung des Diensteanbieters",
+        "credits": "<a href='https://github.com/bartscherer/gfo'>GFO</a> ist eine freie Software entwickelt von <a href='https://bartscherer.io'>Bartscherer Software</a>"
+    }
+}

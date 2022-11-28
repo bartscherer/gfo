@@ -1,0 +1,12 @@
+colorama
+fastapi
+gunicorn
+iso8601
+jinja2
+pytz
+pyyaml
+redis
+requests
+starlette
+tzlocal
+uvicorn

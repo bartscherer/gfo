@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="{{ i18n['head']['author'] }}">
+    <meta name="description" content="{{ i18n['head']['description'] }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ i18n['title'] }}</title>
+    <link rel="stylesheet" href="/css2?family=Material+Symbols+Outlined&family=Quicksand">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <section class="content-section noselect">
+        <h1 class="common text">{{ i18n['headline'] | safe }}</h1>
+        <div class="common text">
+            {{ i18n['introduction'] | safe }}
+        </div>
+        <div class="common text disclaimer">
+            {{ i18n['disclaimer'] | safe }}
+        </div>
+        <div class="w100 input-field-carrier">
+            <div class="input-field-outer">
+                <div class="w100 input-field-icon center">
+                    <i class="material-symbols-outlined">{{ i18n['urlInputIcon'] }}</i>
+                </div>
+                <input
+                    id="urlInput"
+                    class="w100 input-field-input"
+                    placeholder="{{ i18n['urlInputPlaceholder'] }}"
+                    autocomplete="off"
+                >
+                <div class="w100 input-field-controls">
+                    <div
+                        id="btnConvertURL"
+                        class="w100 input-field-control-button center"
+                        title="{{ i18n['btnConvertTitle'] }}"
+                    >
+                        <i class="material-symbols-outlined">{{ i18n['btnConvertIcon'] }}</i>
+                    </div>
+                    <div
+                        id="btnDownload"
+                        class="w100 input-field-control-button center"
+                        title="{{ i18n['btnDownloadTitle'] }}"
+                    >
+                        <i class="material-symbols-outlined">{{ i18n['btnDownloadIcon'] }}</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="artifacts" class="common artifacts"></div>
+        <footer class="w100">
+            <div class="languages text">
+                Available languages: 
+                {% for lang in i18n_languages %}
+                    <a class="language" href="?language={{ lang }}">
+                        {{ i18n_languages[lang] }}
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="text">
+                <a href="{{ imprint_url }}">{{ i18n['imprint'] }}</a> | <a href="{{ privacy_url }}">{{ i18n['privacy'] }}</a>
+            </div>
+            <div class="credits text">
+                {{ i18n['credits'] | safe }}
+            </div>
+        </footer>
+    </section>
+    <script src="/static/js/index.js"></script>
+</body>

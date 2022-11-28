@@ -1,0 +1,25 @@
+cors:
+  allow_credentials: false
+  allowed_headers:
+    - '*'
+  allowed_methods:
+    - 'GET'
+  origins:
+    - '*'
+
+customization:
+  imprint_url: https://your-imprint-goes.here # please change those!
+  privacy_url: https://your-privacy-goes.here
+
+log:
+  file_path: gfo.log
+  debug: false  # whether to log debug messages
+  info: true    #    "    "   "   info    "
+  warn: true    # ...
+  error: true
+  unexpected_exceptions: true # whether to log unexpected exceptions
+
+misc:
+  cache_lifespan_seconds: 21600 # 6 hours
+  font_cache_dir: /tmp/fonts
+  timezone: UTC
