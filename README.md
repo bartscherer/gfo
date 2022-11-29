@@ -6,6 +6,8 @@ Let's assume that a user visits your website and you have embedded fonts from Go
 
 If you use GFO, the process looks different. You have then replaced on your website all URLs of Google's API for fonts with the address of your self-provided GFO (~~fonts.googleapis.com~~ -> fonts.yourdomain.com). Now the user's browser will no longer visit Google's servers for loading the fonts, but only your GFO instance. This instance will now download the desired fonts from Google's servers, store them locally, and forward only the contents of the locally stored files to the user's browser. Thus, your users are no longer redirected to external servers, but receive any fonts directly from your infrastructure.
 
+**[A demo is available here.](https://fonts.bartscherer.io)**
+
 ## The long-term vision
 
 If the opportunity arises for major IT service providers to make GFO available to the public (without collecting visitors' IP addresses, of course), GFO would become usable without hosting itself. So website owners could then easily specify fonts.bigserviceprovider.de in their <link\> tags instead of fonts.googleapis.com and avoid warnings. I would like to do this myself, but I don't have the infrastructure to do it.
@@ -18,18 +20,6 @@ If the opportunity arises for major IT service providers to make GFO available t
 
 - You have your own website and server. You can then simply co-host GFO on the same server (e.g. under the path https://mydomain.com/gfo/) and can then obtain the fonts from there. You then no longer have to change the static assets of your website if you want to use a new font, for example. Also, the basis for warnings for the use of Google fonts is then omitted, since they are obtained from your domain (e.g. https://mydomain.com) instead of from Google's servers.
 
-## Disadvantages of GFO
-
-- Unfortunately, the behavior of GFO **currently** is not yet equivalent to the behavior of Google's servers. When a browser visits fonts.googleapis.com, Google's API can determine which format to select for the fonts by providing information about the browser itself, which the browser automatically sends along. For example, with the current Firefox, I get the fonts in WOFF2 format. However, since GFO is a proxy, Google responds to each request with the fonts in TrueType format. This is somewhat older and contains, among other things, data that is not relevant for a font that is used on web pages. **The amount of data is therefore higher**. However, should this project find favor, I will be happy to make appropriate adjustments so that WOFF2 is used whenever possible.
-
-- The burden for downloading the fonts will be borne by your infrastructure. In a "perfect" world, I would have simply bought my own domain and run GFO there as a service to everyone. However, this is not easily possible because the more users visit your site, the more downloads of the fonts will take place, thus putting more load on your servers. **This is usually not a problem, however, since you can run multiple instances of GFO yourself and each instance can also handle large amounts of requests (about 1000 requests per second in tests)**.
-
-- This software is still under development and has passed tests well in some areas, however I am sure there are use cases that have not been tested yet. **So there is no guarantee that GFO will always work.**
-
-- You will have to host GFO yourself if no one else will do it for you.
-
-- Whenever a font is not available from cache, it could take a little longer to fetch it initially than it would take using Google.
-
 ## Advantages of GFO
 
 - **You don't have to worry about warnings** because of embedded fonts from Google.
@@ -39,6 +29,19 @@ If the opportunity arises for major IT service providers to make GFO available t
 - **Users may have faster loading times** because GFO can be easily co-hosted on your server, reducing the number of external URLs on your site.
 
 - GFO has a graphical interface that allows you to download **any font (CSS and font files) easily as an archive**. So you just need to enter your embedded links and get ready-made "folders" to embed in your application/website.
+
+- GFO provides a [WordPress plugin](https://github.com/bartscherer/gfo) for you too!
+
+## Disadvantages of GFO
+
+- Unfortunately, the behavior of GFO **currently** is not yet equivalent to the behavior of Google's servers. When a browser visits fonts.googleapis.com, Google's API can determine which format to select for the fonts by providing information about the browser itself, which the browser automatically sends along. For example, with the current Firefox, I get the fonts in WOFF2 format. However, since GFO is a proxy, Google responds to each request with the fonts in TrueType format. This is somewhat older and contains, among other things, data that is not relevant for a font that is used on web pages. **The amount of data is therefore higher**. However, should this project find favor, I will be happy to make appropriate adjustments so that WOFF2 is used whenever possible. **Please keep in mind, that even though TTF is older, it will perfectly serve its purpose and shouldn't cause any problems rendering the font for [more than 98% of all users](https://caniuse.com/?search=ttf). I'd assume that the amount of people using Opera Mini as their browser is pretty small.
+
+- The burden for downloading the fonts will be borne by your infrastructure. In a "perfect" world, I would have simply bought my own domain and run GFO there as a service to everyone. However, this is not easily possible because the more users visit your site, the more downloads of the fonts will take place, thus putting more load on your servers. **This is usually not a problem, however, since you can run multiple instances of GFO yourself and each instance can also handle large amounts of requests (about 1000 requests per second in tests)**.
+
+- This software is still under development and has passed tests well in some areas, however I am sure there are use cases that have not been tested yet. **So there is no guarantee that GFO will always work.**
+
+- You will have to host GFO yourself if no one else will do it for you.
+
 ## Installation
 
 ### Deployment via HTTP
@@ -81,7 +84,7 @@ In this case, please also note that you should block HTTP traffic directly to th
 
 - doc, doc, doc....
 
-- Fix so many code smells (the project was created on very short notice in two days)
+- Fix code smells (the project was created on very short notice in two days)
 
 - Integration into e.g. Wordpress to make it even easier to use GFO
 
