@@ -1,25 +1,11 @@
 :root
 {
     --content-width: 1180px;
-    --blue-main: #303698;
-    --blue: #0468d7;
-    --lightgray: #a8aabc;
-    --pink: #ff6681;
-    --darkgreen: #008A63;
-    --green: #26C196;
-    --lightgreen: #90EE90;
-    --white-background: white;
-    --white-text: white;
-    --text-gray: #555;
-    --text-darkgray: #434655;
-    --text-white: #eee;
-    --yellow: yellow;
-    --orange: #FC6A03;
-    --gray-hint: #888;
-    --issue-red: darkred;
-    --white-background-darker: whitesmoke;
-    --image-overlay-darker: rgba(48, 54, 152, .9);
-    --image-overlay-lighter: rgba(48, 54, 152, .75);
+    --primary: #303698;
+    --secondary: #FF6681;
+    --highlight: #90EE90;
+    --text: #FFF;
+    --invalid: #EF3053;
 }
 
 html, body
@@ -31,7 +17,7 @@ html, body
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--blue-main);
+    background-color: var(--primary);
     overflow: hidden;
     overflow-y: auto;
 }
@@ -39,7 +25,7 @@ html, body
 a
 {
     font-family: 'Quicksand';
-    color: var(--pink) !important;
+    color: var(--secondary) !important;
     text-decoration: none;
 }
 
@@ -92,14 +78,14 @@ h1
     text-align: center;
     word-wrap: break-word;
     word-break: keep-all;
-    color: var(--text-white);
+    color: var(--text);
     font-size: 1.25em;
     font-weight: 700;
 }
 
 .highlight
 {
-    color: var(--pink);
+    color: var(--secondary);
 }
 
 .disclaimer
@@ -162,7 +148,7 @@ h1
     outline: 0 !important;
     background-color: transparent;
     font-size:1.4em;
-    color: var(--text-white);
+    color: var(--text);
 }
 
 .input-field-controls
@@ -181,7 +167,7 @@ h1
 
 .input-field-control-button:hover
 {
-    color: var(--lightgreen);
+    color: var(--highlight);
 }
 
 .input-field-icon, .input-field-control-button
@@ -200,12 +186,12 @@ h1
 
 .input-valid
 {
-    color: var(--lightgreen) !important;
+    color: var(--highlight) !important;
 }
 
 .input-invalid
 {
-    color: var(--pink) !important;
+    color: var(--invalid) !important;
 }
 
 .converted-url, .downloadable-url
@@ -226,7 +212,7 @@ h1
     float: left;
     box-sizing: border-box;
     border-right: solid 2px rgba(255,255,255,.2);
-    color: var(--lightgreen);
+    color: var(--highlight);
     font-size:2em;
 }
 
@@ -252,20 +238,20 @@ h1
 
 .converted-url-input-new, .converted-url-input-old, .downloadable-url-input-old
 {
-    color: var(--white-text);
+    color: var(--text);
     font-size: 1.25em;
-    color: var(--lightgreen)
+    color: var(--highlight)
 }
 
 .converted-url-input-old, .downloadable-url-input-old
 {
     text-decoration: line-through !important;
-    color: var(--pink);
+    color: var(--secondary);
 }
 
 .downloadable-url-download-button
 {
-    color: var(--lightgreen) !important;
+    color: var(--highlight) !important;
     font-weight: 700;
     font-size:1.2em;
 }

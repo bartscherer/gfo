@@ -31,6 +31,17 @@ CONFIGURATION_STRUCTURE = dict(
         ),
     ),
     customization=dict(
+        colors=dict(
+            description='The CSS colors to use',
+            default=dict(
+                primary='#303698',
+                secondary='#FF6681',
+                highlight='#90EE90',
+                invalid='EF3053',
+                text='#FFF'
+            ),
+            sanitizer=Sanitizers.dict
+        ),
         imprint_url=dict(
             description='The URL of your imprint',
             default='',

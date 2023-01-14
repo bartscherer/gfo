@@ -34,17 +34,11 @@ requirements: pyenv ## Install the requirements into the virtual environment
 	@pip3 install -r gfo/requirements.txt
 	@echo "[*] Successfully installed requirements"
 
-prestart:
-	@source .python-virtual-environment/bin/activate
-	@echo "[*] Running the prestart script [./handtuch/prestart.sh] now..."
-	@bash gfo/prestart.sh
-	@echo "[*] Prestart script executed"
-
-run: requirements prestart ## Run the server
+run: requirements ## Run the server
 	@source .python-virtual-environment/bin/activate
 	@echo "[*] Running the FastAPI application via gunicorn now..."
 	@cd gfo
-	@gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:3000 --reload --log-level debug
+	@/bin/bash process_wrapper.sh -p false
 	@echo "[*] Server exited"
 
 run-docker: ## Run the server dockerized

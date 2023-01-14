@@ -25,13 +25,3 @@ with open(font_cache_test_path, 'wb') as test:
     test.close()
 remove(font_cache_test_path)
 log.info(f'Write test to path "{font_cache_test_path}" succeeded')
-
-ipc_dir = join_path(from_config('misc', 'font_cache_dir'), Constants.Internal.IPC_DIR_NAME)
-if isdir(ipc_dir):
-    log.info(f'IPC directory "{ipc_dir}" exists. Re-creating it now...')
-    rmtree(ipc_dir)
-    mkdir(ipc_dir)
-else:
-    log.info(f'IPC directory "{ipc_dir}" does not exist. Creating it now...')
-    mkdir(ipc_dir)
-log.info('Done')

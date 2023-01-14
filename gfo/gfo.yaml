@@ -10,13 +10,19 @@ cors:
 customization:
   imprint_url: https://your-imprint-goes.here # please change those!
   privacy_url: https://your-privacy-goes.here
+  colors:
+    highlight: '#90EE90' # highlights (hover, finished tasks)
+    invalid: '#EF3053'   # invalid URL
+    primary: '#303698'   # page background
+    secondary: '#FF6681' # text highlights and links
+    text: '#FFF'         # text color
 
 log:
   file_path: gfo.log
   debug: false  # whether to log debug messages
   info: true    #    "    "   "   info    "
   warn: true    # ...
-  error: true
+  error: true   # ...
   unexpected_exceptions: true # whether to log unexpected exceptions
 
 misc:
