@@ -6,9 +6,7 @@ Let's assume that a user visits your website and you have embedded fonts from Go
 
 If you use GFO, the process looks different. You have then replaced on your website all URLs of Google's API for fonts with the address of your self-provided GFO (~~fonts.googleapis.com~~ -> fonts.yourdomain.com). Now the user's browser will no longer visit Google's servers for loading the fonts, but only your GFO instance. This instance will now download the desired fonts from Google's servers, store them locally, and forward only the contents of the locally stored files to the user's browser. Thus, your users are no longer redirected to external servers, but receive any fonts directly from your infrastructure.
 
-**A demo is available [here](https://fonts.bartscherer.io)**.
-
-**The WordPress plugin is available [here](https://github.com/bartscherer/gfo-wordpress-plugin)**.
+**[A demo is available here.](https://fonts.bartscherer.io)**
 
 ## The long-term vision
 
@@ -91,5 +89,3 @@ In this case, please also note that you should block HTTP traffic directly to th
 - Integration into e.g. Wordpress to make it even easier to use GFO
 
 - Better UI
-
-- Find some way around the IPC headache to determine which worker is the one that should run the service manager
