@@ -46,7 +46,6 @@ class Internal(object):
     '''
 
     EXCEPTION_HOOK_NAME: str = 'gfo_global_exceptions'
-    IPC_DIR_NAME: str = '.ipc'
     SERVICE_INTERVAL_CACHE_CLEANUP: int = 60
     SERVICE_INTERVAL_DEFAULT: int = 900
     WORKER_ROLE_LEADER: str = 'leader'
@@ -58,6 +57,7 @@ class Misc(object):
         Miscellaneous constants
     '''
     I18N_DEFAULT_LANG: str = 'de'
+    SERVER_HEADER_ENABLED: bool = False
 
 class Routing(object):
 
@@ -74,7 +74,7 @@ class Versioning(object):
     '''
 
     AUTHOR: str = 'Bartscherer Software <info@bartscherer.io>'
-    VERSION: str = '1.0.0'
+    VERSION: str = '1.1.0'
 
 class Constants(object):
 
