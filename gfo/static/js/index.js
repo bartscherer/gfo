@@ -127,6 +127,13 @@ const getCurrentURL = () => {
     return element('urlInput').value;
 }
 
+const updateCSSVariable = (variable, value) => {
+    document.documentElement.style.setProperty(
+        variable,
+        value
+    );
+};
+
 const initialize = () => {
     let btnDownload = element('btnDownload');
     let btnConvertURL = element('btnConvertURL');
@@ -143,6 +150,22 @@ const initialize = () => {
         'input',
         validateURLOnInput
     );
+
+    for(let colorSetting of [
+        ['--highlight', HIGHLIGHT_COLOR],
+        ['--invalid', INVALID_COLOR],
+        ['--primary', PRIMARY_COLOR],
+        ['--secondary', SECONDARY_COLOR],
+        ['--text', TEXT_COLOR]
+    ])
+    {
+        if(colorSetting[1] === '') continue;
+        updateCSSVariable(
+            colorSetting[0],
+            colorSetting[1]
+        );
+    }
+
 };
 
 document.addEventListener(
