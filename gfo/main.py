@@ -7,7 +7,10 @@ from io import BytesIO
 from logging import getLogger
 from os.path import isfile
 from starlette.templating import _TemplateResponse
+from sys import argv
+from time import sleep
 from typing import Optional, Union
+from uvicorn.workers import UvicornWorker
 
 from gfo.asgi_apps.static_files import static_files_app
 from gfo.config import Constants, from_config
@@ -16,11 +19,19 @@ from gfo.exceptions.catcher import get_unhandled_exception_handler
 from gfo.exceptions.googlefonts import GGoogleFontsBadRequestException, GGoogleFontsException
 from gfo.googlefonts.downloader import GoogleFontsDownloader, get_google_fonts_downloader
 from gfo.i18n import i18n, get_i18n_language_from_string
-from gfo.ipc import get_worker_role
 from gfo.libaccelerate.helpers import get_id, current_function_name
 from gfo.logging import get_logger
 from gfo.services import get_service_manager
 from gfo.templates import template_to_response
+
+'''
+    Subclass the UvicornWorker to not send server header
+'''
+
+class GFOUvicornWorker(UvicornWorker):
+    CONFIG_KWARGS = dict(
+        server_header=Constants.Misc.SERVER_HEADER_ENABLED
+    )
 
 '''
     Disable the uvicorn logger to prevent logging IP addresses
@@ -38,19 +49,6 @@ get_unhandled_exception_handler()
     Instantiate logger
 '''
 log = get_logger()
-
-'''
-    Get worker role
-'''
-
-log.info('Getting my worker role...')
-if get_worker_role() == Constants.Internal.WORKER_ROLE_LEADER:
-    log.info('This worker is the LEADER')
-    svc_mngr = get_service_manager()
-    svc_mngr.start_services()
-    log.info('Started the service manager')
-else:
-    log.info('This worker is a follower')
 
 '''
     Mount all apps
@@ -101,7 +99,8 @@ def index(
             i18n=i18n()[i18n_lang]['index'],
             i18n_languages=i18n()[i18n_lang]['languages'],
             imprint_url=from_config('customization', 'imprint_url'),
-            privacy_url=from_config('customization', 'privacy_url')
+            privacy_url=from_config('customization', 'privacy_url'),
+            custom_colors=from_config('customization', 'colors')
         )
     except Exception as exc:
         log.error(
